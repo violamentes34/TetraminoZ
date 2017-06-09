@@ -22,7 +22,7 @@ public class TetraminoZ {
     private char letra;
 
     /**
-     * Constructor de la clase TetraminoS inicializa las variables x, y, letra,
+     * Constructor de la clase TetraminoZ inicializa las variables x, y, letra,
      * cuadro
      */
     public TetraminoZ() {
@@ -102,8 +102,10 @@ public class TetraminoZ {
      * que el tetramino pueda moverse a la izquierda del tablero
      */
     public void moverIzqFigura() {
-        if (cuadro.getX() >= 0) {
+        if (cuadro.getX() > 0 && cuadro.getY() != 0) {
             cuadro.setX(cuadro.getX() - 1);
+        } else if (cuadro.getY() == 0) {
+            System.out.println("HA LLEGADO AL FINAL DEL TABLERO");
         }
 
     }//fin del método
@@ -113,8 +115,10 @@ public class TetraminoZ {
      * que el tetramino pueda moverse a la derecha del tablero
      */
     public void moverDerFigura() {
-        if (cuadro.getX() <= 20) {
+        if (cuadro.getX() < 20 && cuadro.getY() != 0) {
             cuadro.setX(cuadro.getX() + 1);
+        } else if (cuadro.getY() == 0) {
+            System.out.println("HA LLEGADO AL FINAL DEL TABLERO");
         }
     }//fin del método
 
@@ -123,7 +127,12 @@ public class TetraminoZ {
      * que el tetramino pueda bajar hasta el final del tablero
      */
     public void bajarFigura() {
-        cuadro.setY(cuadro.getY() - 1);
+        if (cuadro.getY() > 0) {
+            cuadro.setY(cuadro.getY() - 1);
+        } else if (cuadro.getY() == 0) {
+            System.out.println("HA LLEGADO AL FINAL DEL TABLERO");
+            //System.exit(0);
+        }
     }//fin del método
 
     /**
@@ -133,6 +142,18 @@ public class TetraminoZ {
         for (int i = 0; i < tetraZ.length; i++) {
             for (int j = 0; j < tetraZ[i].length; j++) {
                 System.out.print(tetraZ[i][j].getX() + "" + tetraZ[i][j].getY() + tetraZ[i][j].getLetra() + "   ");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < tetraZ.length; i++) {
+            for (int j = 0; j < tetraZ[i].length; j++) {
+                if (tetraZ[i][j].getX() >= 0 && tetraZ[i][j].getY() >= 0) {
+                    System.out.println("Posicion X: " + tetraZ[i][j].getX());
+                    System.out.println("Posicion Y: " + tetraZ[i][j].getY());
+                    break;
+                }
+                break;
             }
             System.out.println();
         }

@@ -7,7 +7,6 @@
 /**
  *
  * Esta clase es la encargada de encapsular las variables las clases TetraminoZ
- * y TetraminoS
  *
  * @author Chrystian Romero
  * @version 0.1.9

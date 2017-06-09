@@ -23,35 +23,21 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        int x = 9, y = 8;
+        int x = 20, y = 20;
         char letra = ' ';
         boolean posicion = true;
 
         Cuadradito modelo = new Cuadradito(x, y, letra);
-
-        TetraminoS S = new TetraminoS();
-
-        System.out.println("");
-
         TetraminoZ Z = new TetraminoZ();
 
-        int aux = 0, a = 0;
+        int opc = 0, a = 0;
         Scanner leer = new Scanner(System.in);
 
-        while (aux <= 5) {
-            System.out.println("\n Escoga una opcion \n1. Ver figura \n2. Rotar \n3. Mover izq \n4. Mover der \n5. Bajar");
-            aux = leer.nextInt();
-            switch (aux) {
-                case 1:
-                    /*S.inicializarFigura();
-                    S.setCuadro(modelo);
-                    modelo.setPosicion(posicion);
-
-                    S.inicializarFigura();
-                    S.rotarFigura();
-                    S.imprimirFigura();
-
-                    System.out.println("");*/
+        while (opc != 6) {
+            System.out.println("Escoga una opcion \n1. Ver figura \n2. Rotar \n3. Mover izq \n4. Mover der \n5. Bajar \n6. Salir");
+            opc = leer.nextInt();
+            switch (opc) {
+                case 1:                    
                     Z.setCuadro(modelo);
                     modelo.setPosicion(posicion);
                     Z.inicializarFigura();
@@ -62,16 +48,10 @@ public class Main {
                     modelo.setPosicion(posicion);
                     break;
                 case 2:
-                    if (a % 2 == 0) {
-                        /*S.setCuadro(modelo);
-                        modelo.setPosicion(false);
-                        //modelo = new Cuadradito(modelo.getX(), modelo.getY(), modelo.getLetra());
-                        S.inicializarFigura();
-                        S.rotarFigura();
-                        S.imprimirFigura();
-                        System.out.println("");*/
+                    if (a % 2 == 0) {                        
                         Z.setCuadro(modelo);
-                        modelo.setPosicion(false);
+                        posicion = true;
+                        modelo.setPosicion(posicion);
 
                         Z.inicializarFigura();
                         Z.crearFigura();
@@ -79,17 +59,9 @@ public class Main {
                         Z.imprimirFigura();
                         a++;
                     } else {
-                        /*S.setCuadro(modelo);
-                        modelo.setPosicion(true);
-
-                        S.inicializarFigura();
-                        S.rotarFigura();
-                        S.imprimirFigura();
-
-                        System.out.println("");*/
-
                         Z.setCuadro(modelo);
-                        modelo.setPosicion(true);
+                        posicion = false;
+                        modelo.setPosicion(posicion);
 
                         Z.inicializarFigura();
                         Z.crearFigura();
@@ -99,27 +71,37 @@ public class Main {
                     }
                     break;
                 case 3:
-                    /*S.moverIzqFigura();
-                    S.imprimirFigura();                    
-                    System.out.println("");*/
                     Z.moverIzqFigura();
+                    Z.inicializarFigura();
+                    Z.crearFigura();
+                    Z.rotarFigura();
                     Z.imprimirFigura();
+                    Z.setCuadro(modelo);                    
+                    modelo.setPosicion(posicion);
                     break;
                 case 4:
-                    /*S.moverDerFigura();
-                    S.imprimirFigura();
-                    System.out.println("");*/
                     Z.moverDerFigura();
+                    Z.inicializarFigura();
+                    Z.crearFigura();
+                    Z.rotarFigura();
                     Z.imprimirFigura();
+                    Z.setCuadro(modelo);                    
+                    modelo.setPosicion(posicion);
                     break;
                 case 5:
-                    /*S.moverDerFigura();
-                    S.imprimirFigura();
-                    System.out.println("");*/
                     Z.bajarFigura();
+                    Z.inicializarFigura();
+                    Z.crearFigura();
+                    Z.rotarFigura();
                     Z.imprimirFigura();
+                    Z.setCuadro(modelo);                    
+                    modelo.setPosicion(posicion);
+                    break;
+                case 6:
+                    System.exit(0);
                     break;
                 default:
+                    System.out.println("Digite una opción dentro de los parámetro establecidos");
                     break;
             }
         }
